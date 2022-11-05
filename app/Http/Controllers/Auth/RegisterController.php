@@ -11,10 +11,7 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    // function __construct()
-    // {
-    //     $this->middleware('auth:sanctum')->only('destroy');
-    // }
+
     public function store(StoreUserRequest $request)
     {
         $user = User::create([
@@ -22,14 +19,10 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        return response([
+        return [
             'token' => $user->createToken($request->deviceId)->plainTextToken,
-        ], 201);
+        ];
     }
 
-    public function destroy(User $user, Request $request)
-    {
-        $user->tokens()->where('name', $request->deviceId)->delete();
-        return response('', 204);
-    }
+   
 }

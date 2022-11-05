@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class TokenController extends Controller
 {
-   
+
     public function store(Request $request)
     {
         $request->validate([
@@ -27,5 +27,14 @@ class TokenController extends Controller
         ];
     }
 
+    public function user(Request $request)
+    {
+        return $request->user();
+    }
 
+    public function destroy(Request $request)
+    {
+        $request->user()->tokens()->where('name', $request->deviceId)->delete();
+        return response('', 204);
+    }
 }
