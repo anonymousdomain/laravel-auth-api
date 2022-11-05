@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 
 class TokenController extends Controller
 {
+   
     public function store(Request $request)
     {
         $request->validate([
@@ -26,8 +28,4 @@ class TokenController extends Controller
     }
 
 
-    public function destroy($id)
-    {
-        //
-    }
 }

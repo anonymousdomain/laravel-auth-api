@@ -20,5 +20,6 @@ Route::middleware('auth:sanctum')->get('auth/user', function (Request $request) 
     return $request->user();
 });
 
-Route::post('auth/token', [TokenController::class, 'store']);
 Route::post('user/register', [RegisterController::class, 'store']);
+Route::post('auth/token', [TokenController::class, 'store']);
+Route::delete('auth/token/delete', [TokenController::class, 'destroy']);
