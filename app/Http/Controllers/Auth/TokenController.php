@@ -21,7 +21,7 @@ class TokenController extends Controller
         }
 
         return [
-            'token' => $request->user()->createToken('test')->plainTextToken
+            'token' => $request->user()->createToken($request->deviceId)->plainTextToken
         ];
     }
 
