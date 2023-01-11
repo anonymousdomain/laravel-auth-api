@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('auth/user', [TokenController::class, 'user']);
     Route::get('user/posts', [PostController::class, 'index']);
     Route::delete('auth/token/delete', [TokenController::class, 'destroy']);
-    Route::post('auth/token', [TokenController::class, 'store']);
 });
 
+Route::post('auth/token', [TokenController::class, 'store']);
 Route::post('user/register', [RegisterController::class, 'store']);
